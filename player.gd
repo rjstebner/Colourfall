@@ -4,7 +4,9 @@ extends CharacterBody2D
 
 @export var gravity: float = 100.0  # Controls how fast the character accelerates
 @export var max_fall_speed: float = 400.0  # Limits the maximum fall speed
+@export var playbutton: Button
 
+var player_can_move = false
 var current_colour: Color = Color.WHITE
 
 var colour_map = {
@@ -15,13 +17,20 @@ var colour_map = {
 }
 
 func _ready():
+
+
 	$Sprite2D.modulate = current_colour
 
 	# Check if spawners array is populated, if not, attempt to fetch nodes in the scene
 	if spawners.is_empty():
 		spawners = get_tree().get_nodes_in_group("Spawner")
+	
+	playbutton.connect("pressed", Callable(self, "_on_play_button_pressed"))
+	
 
 func _physics_process(delta):
+	if not player_can_move:
+		return
 	velocity.y += gravity * delta  # Gradual acceleration
 	velocity.y = min(velocity.y, max_fall_speed)  # Clamp to max fall speed
 
@@ -60,3 +69,6 @@ func _start_round():
 
 	# Remove the used spawner from the list so the next one gets used next time
 	spawners.remove_at(0)
+
+func _on_play_button_pressed():
+	player_can_move = true

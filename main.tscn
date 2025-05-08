@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgllpbu1fmj88"]
+[gd_scene load_steps=16 format=3 uid="uid://cgllpbu1fmj88"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1dhgf"]
 [ext_resource type="Texture2D" uid="uid://kw3al8eh1qh" path="res://white.png" id="2_mng6a"]
@@ -12,17 +12,20 @@
 [ext_resource type="PackedScene" uid="uid://cjqkl2jyffidm" path="res://Obstacles/YellowObstacle.tscn" id="10_nfj28"]
 [ext_resource type="Script" path="res://score.gd" id="11_7ohl1"]
 [ext_resource type="PackedScene" uid="uid://rlg4rcdw6ioc" path="res://Obstacles/BlackObstacle.tscn" id="11_bbvq1"]
+[ext_resource type="AudioStream" uid="uid://bdl7af1fi0hav" path="res://Bounce-Light-2.mp3" id="13_tkwdf"]
+[ext_resource type="Script" path="res://music_player.gd" id="14_3akro"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fnirc"]
 radius = 20.0
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("spawners") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("spawners", "playbutton") groups=["Player"]]
 position = Vector2(579, -3014)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_1dhgf")
 spawners = [NodePath("../Spawner"), NodePath("../Spawner2"), NodePath("../Spawner3"), NodePath("../Spawner4"), NodePath("../Spawner5")]
+playbutton = NodePath("../PlayButton")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(-2.83122e-06, 0)
@@ -99,6 +102,14 @@ obstacle_scenes = Array[PackedScene]([ExtResource("7_uqgdu"), ExtResource("5_64u
 position = Vector2(579, 11144)
 scale = Vector2(9, 0.25)
 
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 922.0
+offset_top = -3094.0
+offset_right = 1083.0
+offset_bottom = -3000.0
+theme_override_font_sizes/font_size = 62
+text = "Play!"
+
 [node name="ScoreBoard" type="TextureRect" parent="." groups=["Scoreboard"]]
 offset_left = 50.0
 offset_top = -229.0
@@ -137,3 +148,7 @@ offset_bottom = 260.0
 theme_override_font_sizes/font_size = 63
 text = "Combo x"
 metadata/_edit_use_anchors_ = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_tkwdf")
+script = ExtResource("14_3akro")

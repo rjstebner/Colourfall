@@ -11,8 +11,9 @@ func _process(delta: float) -> void:
 		var player_node = get_node(player)
 		# Update the score's Y position to match the player's Y position
 		position.y = player_node.global_transform.origin.y
-	
-	elapsed_time += delta
+
+		if player_node.player_can_move:
+			elapsed_time += delta
 
 	$Count.text = str(round(elapsed_time * 10) / 10.0)
 
