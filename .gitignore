@@ -1,0 +1,19 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+# Godot-specific
+.import/
+.export/
+.godot/
+*.import
+*.tmp
+*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+
+# Optional: Uncomment if you don’t want to include builds
+# bin/
+# *.exe
+# *.apk
