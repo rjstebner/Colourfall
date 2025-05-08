@@ -12,8 +12,3 @@
 # OS / Editor
 .DS_Store
 Thumbs.db
-
-# Optional: Uncomment if you don’t want to include builds
-# bin/
-# *.exe
-# *.apk

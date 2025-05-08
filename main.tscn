@@ -77,15 +77,15 @@ target_position = Vector2(470, 0)
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource("3_fbie4")
-obstacle_scenes = Array[PackedScene]([ExtResource("7_uqgdu")])
+obstacle_scenes = Array[PackedScene]([ExtResource("5_64uv7")])
 
 [node name="Spawner2" type="Node" parent="."]
 script = ExtResource("3_fbie4")
-obstacle_scenes = Array[PackedScene]([ExtResource("7_uqgdu"), ExtResource("9_2nnea")])
+obstacle_scenes = Array[PackedScene]([ExtResource("5_64uv7"), ExtResource("7_uqgdu")])
 
 [node name="Spawner3" type="Node" parent="."]
 script = ExtResource("3_fbie4")
-obstacle_scenes = Array[PackedScene]([ExtResource("7_uqgdu"), ExtResource("5_64uv7")])
+obstacle_scenes = Array[PackedScene]([ExtResource("5_64uv7"), ExtResource("7_uqgdu"), ExtResource("10_nfj28")])
 
 [node name="Spawner4" type="Node" parent="."]
 script = ExtResource("3_fbie4")
